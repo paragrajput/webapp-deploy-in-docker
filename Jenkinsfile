@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('GitHub Checkout') {
+            steps {
+                git url:'https://github.com/paragrajput/webapp-deploy-in-docker.git'
+            }
+        }
+        stage('Deploy Docker') {    
+            //Deploy Docker using docker-compose.yaml
+			steps {
+				sh 'docker compose up -d'
+			}
+		}
+    }
+}
