@@ -10,7 +10,7 @@ pipeline {
         stage('Deploy Docker') {    
             //Deploy Docker using docker-compose.yaml
 			steps {
-				sh 'docker compose up -d'
+				sh '../../docker compose up -d'
 			}
 		}
     }
