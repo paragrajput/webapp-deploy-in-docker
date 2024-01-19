@@ -9,11 +9,10 @@ pipeline {
                         url: 'https://github.com/paragrajput/webapp-deploy-in-docker.git'
                 }
             }
-            steps('Deploy Docker') {
-                 //Deploy Docker using docker-compose.yaml
-                steps {
-                    sh 'docker compose up -d'
-                }
+        }
+        stage('Docker Deploy') {
+            steps {
+                sh 'docker compose up -d'
             }
         }
     }
