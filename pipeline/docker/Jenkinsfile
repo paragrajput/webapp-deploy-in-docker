@@ -3,9 +3,11 @@ pipeline {
 
     stages {
         stage('GitHub Checkout') {
-            steps {
-                git url:'https://github.com/paragrajput/webapp-deploy-in-docker.git'
-            }
+                script {
+                    git branch: 'master',
+                        credentialsId: 'b455246d-17de-4bda-8ee7-55a4f4cd5ae5',
+                        url: 'https://github.com/paragrajput/webapp-deploy-in-docker.git'
+                 }
         }
         stage('Deploy Docker') {    
             //Deploy Docker using docker-compose.yaml
