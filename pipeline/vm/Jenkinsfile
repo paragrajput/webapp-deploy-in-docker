@@ -15,9 +15,10 @@ pipeline {
                 sh 'npm install && npm run build'
             }
         }
-        stage('Deploy to Nginx') {
+        stage('Deploy and Restart Nginx') {
             steps {
                 sh 'cp -r build/* /var/www/html/'
+                sh 'systemctl restart nginx.service'
             }
         }
     }
