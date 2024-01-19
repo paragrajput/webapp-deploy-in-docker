@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Deploy and Restart Nginx') {
             steps {
-                //Allow write permission on this path '/var/www/html' 
+                //Before Copy Check write permission on this path '/var/www/html' 
                 sh 'cp -r build/* /var/www/html/'
                 sh 'sudo systemctl restart nginx.service'
             }
