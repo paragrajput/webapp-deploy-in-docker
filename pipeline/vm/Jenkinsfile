@@ -1,19 +1,19 @@
 pipeline {
     agent any
-
     stages {
-        stage('GitHub Checkout') {
+        stage('Git Checkout') {
+            steps {
                 script {
                     git branch: 'master',
                         credentialsId: 'b455246d-17de-4bda-8ee7-55a4f4cd5ae5',
                         url: 'https://github.com/paragrajput/webapp-deploy-in-docker.git'
-                 }
+                }
+            }
         }
-        stage('Deploy') {    
-            //Deploy 
-			steps {
-				sh 'echo Hello'
-			}
-		}
+        stage('Packege Install and Build ') {
+            steps {
+                sh 'npm install && npm run build'
+            }
+        }
     }
 }
