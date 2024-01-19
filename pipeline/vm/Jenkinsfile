@@ -15,9 +15,13 @@ pipeline {
                 sh 'npm install && npm run build'
             }
         }
-        stage('Copy Build to Nginx Restart') {
+        stage('Copy Build to Nginx') {
             steps {
                 sh 'sudo cp -r build/* /var/www/html/'
+            }
+        }
+        stage('Restart Nginx') {
+            steps {
                 sh 'sudo service nginx restart'
             }
         }
