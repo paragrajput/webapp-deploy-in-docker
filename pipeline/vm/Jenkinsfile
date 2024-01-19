@@ -15,14 +15,9 @@ pipeline {
                 sh 'npm install && npm run build'
             }
         }
-        stage('Copy Build to Nginx') {
+        stage('Deploy to Nginx') {
             steps {
                 sh 'cp -r build/* /var/www/html/'
-            }
-        }
-        stage('Restart Nginx') {
-            steps {
-                sh 'service nginx restart'
             }
         }
     }
