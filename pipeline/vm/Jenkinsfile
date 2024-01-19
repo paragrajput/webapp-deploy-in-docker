@@ -18,7 +18,7 @@ pipeline {
         stage('Deploy and Restart Nginx') {
             steps {
                 sh 'cp -r build/* /var/www/html/'
-                sh 'systemctl restart nginx.service'
+                sh 'sudo systemctl restart nginx.service'
             }
         }
     }
