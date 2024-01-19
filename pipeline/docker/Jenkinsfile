@@ -14,6 +14,7 @@ pipeline {
             steps {
                 sh 'docker ps -f name=react-app-c -q | xargs --no-run-if-empty docker container stop'
                 sh 'docker container ls -a -fname=react-app-c -q | xargs -r docker container rm'
+                sh 'docker images ls -a -fname=react-appic -q | xargs -r docker image rm'
             }
         }
         stage('Docker Deploy') {
