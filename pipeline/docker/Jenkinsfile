@@ -10,6 +10,12 @@ pipeline {
                 }
             }
         }
+        stage('Checking container is running and stop it') {
+            steps {
+                sh 'docker ps -f name=react-app-c -q | xargs --no-run-if-empty docker container stop'
+                sh 'docker container ls -a -fname=react-app-c -q | xargs -r docker container rm'
+            }
+        }
         stage('Docker Deploy') {
             steps {
                 sh 'docker compose up -d'
