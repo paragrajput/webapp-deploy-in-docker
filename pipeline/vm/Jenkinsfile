@@ -18,7 +18,6 @@ pipeline {
         stage('Copy Build to Nginx Restart') {
             steps {
                 sh 'whoami'
-               # sh 'sudo cp -r build/* /var/www/html/'
                 sh 'sudo service nginx restart'
             }
         }
