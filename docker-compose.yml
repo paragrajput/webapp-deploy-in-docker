@@ -1,7 +1,7 @@
 services:
   app:  
-    container_name: react-app-c
-    image: react-app-i
+    container_name: web-app-c
+    image: web-app-i
     build: 
         context: .
     ports:
