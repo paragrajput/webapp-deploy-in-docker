@@ -27,4 +27,4 @@ jobs:
 
     # Push the Docker image
     - name: Push the Docker image
-      run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/my-image-name:latest
+      run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/demo:latest
