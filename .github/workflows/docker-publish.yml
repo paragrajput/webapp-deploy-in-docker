@@ -9,9 +9,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        environment: [dev, staging, production] # Define your environments
+    env:
+      IMAGE_NAME: demo # Define the image name
+    # strategy:
+    #   matrix:
+    #     environment: [dev, staging, production] # Define your environments
     steps:
     # Checkout the code
     - uses: actions/checkout@v4
