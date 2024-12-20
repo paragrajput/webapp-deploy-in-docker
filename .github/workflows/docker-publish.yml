@@ -23,8 +23,8 @@ jobs:
 
     # Build the Docker image
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_HUB_USERNAME }}/demo:latest
+      run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME}}:latest
 
     # Push the Docker image
     - name: Push the Docker image
-      run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/demo:latest
+      run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME}}:latest
